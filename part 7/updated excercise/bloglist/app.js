@@ -21,7 +21,7 @@ app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 
 // Catch-all route to serve the React app for non-API requests
-app.get('*', (req, res) => {
+app.get('/(.*)', (req, res) => {
   if (req.path.startsWith('/api/')) {
     res.status(404).send({ error: 'unknown endpoint' })
   } else {
